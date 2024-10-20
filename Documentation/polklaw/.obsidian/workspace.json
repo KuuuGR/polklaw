@@ -1,0 +1,156 @@
+{
+  "main": {
+    "id": "540d8e879f3be97d",
+    "type": "split",
+    "children": [
+      {
+        "id": "1549d270205195c0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7bef30d08db58589",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Project Overview.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "fbacb189708a8121",
+    "type": "split",
+    "children": [
+      {
+        "id": "3ce2f9d959ee3be6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c7d1cce139f1d73a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "1a79c383ccc7b1b7",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "1a12b48eeb1ebffc",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "97660bea300cdccb",
+    "type": "split",
+    "children": [
+      {
+        "id": "afffa297618820a8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "94173ca3a6f67028",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Project Overview.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "476c974ab904f371",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Project Overview.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "32234501f2b9b750",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "7b8210beba4d334e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Project Overview.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "7bef30d08db58589",
+  "lastOpenFiles": [
+    "Drafts/Research Pipeline.md",
+    "Drafts/Keyboard Optimization Roadmap.md",
+    "Project Overview.md",
+    "Drafts"
+  ]
+}
