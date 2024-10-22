@@ -141,4 +141,54 @@ This script reads a file containing YouTube video links, counts occurrences of e
 - Counts occurrences of each link and sorts them alphabetically.
 - Outputs the sorted list of unique links.
 - Identifies and saves the top 16 most duplicated links.
-## 6. **.**
+## 6. **ExtractYouTubeTranscriptions.py**
+
+### Description:
+
+This script reads a list of YouTube video URLs from an input file, attempts to extract Polish transcriptions using the `youtube_transcript_api`, and writes the transcriptions to an output file. It keeps track of processed URLs using a resume file, allowing the script to resume where it left off if interrupted.
+
+### Input:
+
+- **`video_urls.txt`** (located in `data/input/`): A text file containing YouTube video URLs to process.
+
+### Output:
+
+- **`transcriptions.txt`** (located in `data/output/`): A text file containing the URLs and their corresponding Polish transcriptions.
+- **`resume_file.txt`** (located in `data/output/`): A text file keeping track of processed URLs to prevent reprocessing.
+
+### Key Features:
+
+- Processes YouTube video URLs to extract Polish transcriptions.
+- Handles batch processing with a customizable batch size.
+- Updates the input file to remove processed URLs, ensuring efficiency.
+- Can resume processing from where it left off using the resume file.
+- Handles exceptions gracefully, skipping videos without available Polish transcriptions.
+- Validates URL format before processing.
+
+---
+## 7. **MultiprocessYouTubeTranscriptions.py**
+
+### Description:
+
+This script processes a large input file of YouTube video URLs using multiprocessing. It splits the input file into smaller chunks and runs separate processes for each chunk to extract Polish transcriptions from YouTube videos. The script handles batch processing, resuming from the last processed URL, and updates the input file by removing processed URLs.
+
+### Input:
+
+- **`video_urls.txt`** (located in `data/input/YouTubeChannelSearch/`): A text file containing YouTube video URLs to process.
+
+### Output:
+
+- **`transcriptions.txt_part_[i]`** (located in `data/output/YouTubeChannelSearch/`): Text files containing the URLs and their corresponding Polish transcriptions for each chunk.
+- **`resume_file_part_[i]`** (located in `data/output/YouTubeChannelSearch/`): Text files keeping track of processed URLs to prevent reprocessing.
+
+### Key Features:
+
+- Processes YouTube video URLs to extract Polish transcriptions in parallel using multiprocessing.
+- Splits the input file into smaller chunks for more efficient processing.
+- Handles batch processing and updates input file to remove processed URLs.
+- Can resume processing from where it left off using resume files.
+- Handles exceptions gracefully, skipping videos without available Polish transcriptions.
+- Validates URL format before processing.
+
+---
+## 8. **.**
