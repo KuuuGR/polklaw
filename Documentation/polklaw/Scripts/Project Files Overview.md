@@ -13,6 +13,10 @@ The file `slownik.txt` contains a dictionary of collected Polish words. Each wor
 
 The search method yielded video URLs totaling about 120MB (unpacked, this is 562MB). After removing duplicates and repacking, the file is now 64MB. To save space in this GitHub repository, only the URLs that contain Polish transcriptions are included. This file can be used in the future to extract channel names, remove further duplicates, and gather more videos from channels with at least one transcription. So far, the corpus obtained from these videos is approximately 1GB of text.
 
+## 3. uniqueYouTubeLinksWithPlTranscriptions.txt
+
+This file contains 85,264 filtered YouTube links, selected from over 70 million addresses. Each link corresponds to a YouTube video that has a transcription available in Polish.
+
 # Python Scripts
 
 ## 1. **ExtractPolishWords.py**
@@ -191,4 +195,63 @@ This script processes a large input file of YouTube video URLs using multiproces
 - Validates URL format before processing.
 
 ---
-## 8. **.**
+## 8. **CombineTextFiles.py**
+
+### Description:
+
+This script combines the content of all text files from a given directory into a single output file. Each file's content is separated by a blank line for clarity.
+
+### Input:
+
+- **`data/input/`**: Directory containing the `.txt` files to be combined.
+
+### Output:
+
+- **`data/output/combined_output.txt`**: The resulting output file where all the text content is written, with a blank line separating each file.
+
+### Key Features:
+
+- Reads all `.txt` files from the specified input directory.
+- Combines the content of all text files into one output file.
+- Ensures that the output file is updated even if no `.txt` files are found or if an error occurs.
+## 9. **ExtractAndRemoveDuplicates.py**
+
+### Description:
+
+This script extracts blocks of YouTube URLs and transcriptions from an input file, removes duplicates, and writes the unique blocks to an output file.
+
+### Input:
+
+- **`data/input/combinedOutput.txt`**: A text file that contains multiple blocks of `URL + Transcription`.
+
+### Output:
+
+- **`data/output/uniqueTranscriptions.txt`**: A text file containing unique `URL + Transcription` blocks after duplicates have been removed.
+
+### Key Features:
+
+- Extracts and identifies `URL + Transcription` blocks from the input file.
+- Removes duplicate blocks to ensure only unique ones are kept.
+- Writes unique blocks to an output file.
+- Provides a summary of how many unique blocks were written.
+## 10. **ExtractYouTubeLinks.py**
+
+###  Description:
+
+This script extracts unique YouTube video URLs from an input file, counts any duplicate URLs, and writes the unique, sorted links to an output file.
+
+### Input:
+
+- **`data/input/combinedOutput.txt`**: A text file containing lines with YouTube URLs (in any format).
+
+### Output:
+
+- **`data/output/uniqueYouTubeLinks.txt`**: A file containing unique YouTube URLs, sorted alphabetically.
+
+### Key Features:
+
+- Extracts and counts YouTube video URLs from the input file.
+- Writes unique URLs to an output file.
+- Counts and reports duplicate entries.
+- Provides a summary of the total unique URLs and duplicate entries.
+## 11. **.**
