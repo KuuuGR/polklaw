@@ -6,8 +6,8 @@
 
 - Defined sources for data collection
 - Obtained potential video addresses
-- **→ Gathering corpus data**
-- Cleaning and preparing the collected data
+- Gathering corpus data
+- **-> Cleaning and preparing the collected data**
 - Developing assumptions for the model
 - Creating the model based on assumptions and the data corpus
 - Running computations with the model

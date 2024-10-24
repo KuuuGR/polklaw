@@ -254,4 +254,107 @@ This script extracts unique YouTube video URLs from an input file, counts any du
 - Writes unique URLs to an output file.
 - Counts and reports duplicate entries.
 - Provides a summary of the total unique URLs and duplicate entries.
-## 11. **.**
+
+---
+## 11. **YouTubeChannelDetailsScraper.py**
+
+### Overview
+
+This script extracts channel details from a list of YouTube video URLs using Selenium WebDriver. It retrieves the channel name associated with each video and writes the output to specified files, ensuring that processed URLs are tracked for future resumability in case the script is interrupted.
+
+### Features
+
+- Extracts YouTube channel names from video URLs using Selenium WebDriver.
+- Processes each video URL and writes channel details to an output file.
+- Resumable processing with resume and failed log files.
+- Automatically restarts the WebDriver after every 1000 URLs to handle memory usage efficiently.
+
+### Requirements
+
+- Python 3.x
+- Selenium WebDriver
+- WebDriver Manager for ChromeDriver installation
+
+### Script Breakdown
+
+#### 1. Setup Selenium WebDriver
+
+The `setup_driver()` function configures the Selenium WebDriver with the following options:
+
+- **Headless Execution**: Runs the browser without opening the UI.
+- **No Sandbox & Disable GPU**: Improves stability and compatibility.
+- **Disable Dev SHM Usage**: Helps overcome limited resource problems.
+- **Auto-managed ChromeDriver**: Uses `webdriver_manager` for automatic ChromeDriver installation.
+
+#### 2. Extract Channel Name
+
+The `get_channel_name(video_url, driver)` function takes a video URL and uses Selenium to visit the URL and extract the channel name from the page:
+
+- **Wait for Element**: Uses an explicit wait to ensure the channel name element is loaded before accessing it.
+- **Handle Errors**: Prints an error message if the channel name cannot be found.
+
+#### 3. Extract Channel Details
+
+The `extract_channel_details(input_file, output_file, resume_file, failed_file)` function performs the following:
+
+- **Resume from Progress**: Reads the resume file and failed URLs to skip already processed ones.
+- **Loop through Video URLs**: Visits each YouTube video URL to extract channel names.
+- **Restart Driver Periodically**: Quits and restarts the WebDriver every 800 videos to manage memory.
+- **Writes Results to File**: Saves channel details to the output file and keeps track of processed and failed URLs.
+
+### Usage Instructions
+
+1. **Input File**: Prepare a file containing YouTube video URLs, one per line (e.g., `data/input/unique_youtube_links.txt`).
+2. **Output File Paths**: Update the paths for input, output, resume, and failed files in the script.
+3. **Run the Script**: Execute the script using Python.
+
+### Example File Paths:
+
+- **Input File**: `data/input/unique_youtube_links.txt`
+- **Output File**: `data/output/channel_details.txt`
+- **Resume File**: `data/output/resume.txt`
+- **Failed File**: `data/output/failed.txt`
+
+### Code Example
+
+```
+# File paths for input, output, and resume
+input_file = "data/input/unique_youtube_links.txt"
+output_file = "data/output/channel_details.txt"
+resume_file = "data/output/resume.txt"
+failed_file = "data/output/failed.txt"
+
+# Run the extraction process
+if __name__ == "__main__":
+    extract_channel_details(input_file, output_file, resume_file, failed_file)
+```
+
+### Notes for Future Enhancements
+
+- **Parallel Processing**: Adding multiprocessing could improve processing speed for a large number of URLs.
+- **Error Handling**: Improve robustness for failed YouTube URL retrievals.
+- **Rate Limiting**: Add more dynamic pauses or retries to prevent rate limiting by YouTube.
+## 12.  **YouTubeChannelHandleUpdater.py**
+
+###  Summary: 
+This script extracts YouTube channel handles from a list of video URLs and updates the channel details in the specified output file. It uses Selenium for scraping and includes a batch processing mechanism to avoid overwhelming the browser or running into rate limits. Additionally, it features a resume mechanism to continue processing URLs from where it left off in case of failure, making it efficient for large datasets.
+
+### Details:
+
+- **Input:** File containing YouTube video URLs with channel names.
+- **Output:** File containing updated channel details with YouTube handles.
+- **Features:**
+    - Headless browser for efficient scraping.
+    - Batch processing with configurable batch size to control resource usage.
+    - Resume capability to ensure continuity in case of interruptions.
+    - Immediate file writes for progress tracking.
+### Usage:
+
+- Call `update_channel_details(input_file, output_file, batch_size=10)` to process the video URLs.
+- The script writes the results in `updated_channel_details.txt` and keeps track of progress in a `.resume` file.
+
+This script is helpful for managing large volumes of YouTube video metadata efficiently.
+
+### Simplified Version for Fewer Files
+A simplified version has been added as `12a_YoutubeChannelScraper.py` in the `OptionalScripts` folder.
+## 13. **.**
