@@ -17,6 +17,13 @@ The search method yielded video URLs totaling about 120MB (unpacked, this is 562
 
 This file contains 85,264 filtered YouTube links, selected from over 70 million addresses. Each link corresponds to a YouTube video that has a transcription available in Polish.
 
+## 4. combined_channel_details.txt
+
+- `combined_channel_details.txt` contains information about YouTube channels, including channel names and their associated video URLs.
+- The file format follows the structure: `Channel Name: <channel_name> -> URLS: [<url1>, <url2>, ...]`.
+- This dataset is used for further analysis, processing, and scraping operations to extract more information about the channels.
+## 5. ,
+
 # Python Scripts
 
 ## 1. **ExtractPolishWords.py**
