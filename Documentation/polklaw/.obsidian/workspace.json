@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Drafts/Keyboard Optimization Roadmap.md",
+                "file": "Scripts/Project Files Overview.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Drafts/Keyboard Optimization Roadmap.md",
+                "file": "Scripts/Project Files Overview.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Drafts/Keyboard Optimization Roadmap.md",
+                "file": "Scripts/Project Files Overview.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Drafts/Keyboard Optimization Roadmap.md"
+                "file": "Scripts/Project Files Overview.md"
               }
             }
           }
@@ -148,8 +148,8 @@
   },
   "active": "7bef30d08db58589",
   "lastOpenFiles": [
-    "Drafts/Research Pipeline.md",
     "Drafts/Keyboard Optimization Roadmap.md",
+    "Drafts/Research Pipeline.md",
     "Scripts/Data Collection/index.md",
     "Project Overview.md",
     "Assets/images/DataRetrieveCorpus.png",

@@ -341,27 +341,71 @@ if __name__ == "__main__":
 - **Parallel Processing**: Adding multiprocessing could improve processing speed for a large number of URLs.
 - **Error Handling**: Improve robustness for failed YouTube URL retrievals.
 - **Rate Limiting**: Add more dynamic pauses or retries to prevent rate limiting by YouTube.
-## 12.  **YouTubeChannelHandleUpdater.py**
+## 12.  **YouTubeChannelHandleExtractor.py**
 
-###  Summary: 
-This script extracts YouTube channel handles from a list of video URLs and updates the channel details in the specified output file. It uses Selenium for scraping and includes a batch processing mechanism to avoid overwhelming the browser or running into rate limits. Additionally, it features a resume mechanism to continue processing URLs from where it left off in case of failure, making it efficient for large datasets.
+### Summary
+This script extracts YouTube channel handles from a list of video URLs and updates the channel details in a specified output file. It uses Selenium to scrape YouTube pages to obtain channel handles, and it includes mechanisms for resuming the extraction process if interrupted, reducing repeated work in case of failures.
+
+### Details
+
+- **Input:** A file (`combined_channel_details.txt`) containing YouTube video URLs, each associated with a channel name.
+- **Output:** 
+  - **Main Output File:** `channel_handles_output.txt` - This file contains channel names along with their corresponding YouTube handles, or marks them as "failed" if extraction was not successful.
+  - **Resume File:** `resume.txt` - Keeps track of channels that have already been processed to support resuming from the last successful state in case of interruptions.
+
+### Features
+- **Web Scraping with Selenium:** Uses Selenium with a headless Chrome browser to navigate to YouTube URLs and extract the channel handles.
+- **Multiple Handle Extraction Strategies:** If a handle with an "@" symbol is not found using the standard link method, a fallback strategy attempts to find the channel name using other HTML elements on the page.
+- **Retry Mechanism:** Implements retry logic, attempting up to three times to obtain a handle before marking it as "failed."
+- **Resume Capability:** Uses a resume file to keep track of already processed channels, allowing the script to pick up where it left off if it is interrupted.
+- **Efficient Handling of Failures:** Automatically retries failed URLs at the end of the run, providing multiple attempts to extract channel details without manual intervention.
+
+### Usage
+To run the script:
+
+1. Ensure that you have Selenium and ChromeDriver installed. You can install ChromeDriver using `webdriver_manager`.
+2. Update the input file path, output file path, and resume file path if needed.
+3. Run the script:
+
+```bash
+python YouTubeChannelHandleExtractor.py
+```
+
+The script will read from `combined_channel_details.txt`, process each channel, and write the results to `channel_handles_output.txt`. Channels that could not be processed will be retried automatically, and progress will be tracked in `resume.txt` to avoid redundant processing.
+
+### Example Command
+```bash
+python YouTubeChannelHandleExtractor.py
+```
+
+This script is suitable for handling large sets of YouTube channel URLs, as it includes features to maximize efficiency, reduce redundant work, and handle failures gracefully.
+
+---
+
+## 13. **yt_channel_video_scraper.py**
+
+### Summary:
+
+This script extracts video URLs from a list of YouTube channels using their handles and updates the collected URLs in a specified output file. It utilizes the `yt_dlp` library for efficient extraction and includes resume capability to ensure continuity in case of interruptions, making it well-suited for large datasets.
 
 ### Details:
 
-- **Input:** File containing YouTube video URLs with channel names.
-- **Output:** File containing updated channel details with YouTube handles.
+- **Input:** File containing YouTube channel handles (`channel_handles_output.txt`).
+- **Output:** File containing the video URLs (`movies.txt`).
 - **Features:**
-    - Headless browser for efficient scraping.
-    - Batch processing with configurable batch size to control resource usage.
-    - Resume capability to ensure continuity in case of interruptions.
-    - Immediate file writes for progress tracking.
+    - Uses `yt_dlp` to fetch video URLs.
+    - Handles multiple channels efficiently, appending results to the same file.
+    - Includes resume capability by maintaining a `processed_channels.txt` file.
+    - Progress tracking to know how many channels have been processed out of the total.
+    - Error handling to skip and report channels without available videos.
+
 ### Usage:
 
-- Call `update_channel_details(input_file, output_file, batch_size=10)` to process the video URLs.
-- The script writes the results in `updated_channel_details.txt` and keeps track of progress in a `.resume` file.
+- Call `process_channels(input_handles_file, output_file, processed_channels_file)` to extract video URLs from YouTube channels listed in the input file.
+- The script writes results in `movies.txt` and tracks processed channels in `processed_channels.txt` to allow resuming from the last successful channel in case of interruptions.
 
-This script is helpful for managing large volumes of YouTube video metadata efficiently.
+This script is helpful for efficiently managing and collecting large volumes of YouTube video metadata.
 
-### Simplified Version for Fewer Files
-A simplified version has been added as `12a_YoutubeChannelScraper.py` in the `OptionalScripts` folder.
-## 13. **.**
+---
+
+## 14.
