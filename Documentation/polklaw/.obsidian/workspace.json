@@ -11,11 +11,9 @@
             "id": "7bef30d08db58589",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "Drafts/Keyboard Optimization Roadmap.md",
-                "mode": "source",
-                "source": false
+                "file": "Assets/images/YouTubeGetPLTranscriptions.png"
               }
             }
           }
@@ -85,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Drafts/Keyboard Optimization Roadmap.md",
+                "file": "Assets/images/YouTubeGetPLTranscriptions.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Drafts/Keyboard Optimization Roadmap.md",
+                "file": "Assets/images/YouTubeGetPLTranscriptions.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Drafts/Keyboard Optimization Roadmap.md"
+                "file": "Assets/images/YouTubeGetPLTranscriptions.png"
               }
             }
           }
@@ -149,6 +147,8 @@
   "active": "7bef30d08db58589",
   "lastOpenFiles": [
     "Assets/images/DataRetrieveCorpus.png",
+    "Assets/images/YouTubeGetPLTranscriptions.png",
+    "Assets/images/YouTubeGetPLTranscriptions.textClipping",
     "Drafts/Keyboard Optimization Roadmap.md",
     "Drafts/Research Pipeline.md",
     "Scripts/Project Files Overview.md",
@@ -163,7 +163,6 @@
     "Scripts/Data Collection",
     "Scripts",
     "Drafts/Scripts",
-    "słownik.md",
-    "słownik.txt"
+    "słownik.md"
   ]
 }
