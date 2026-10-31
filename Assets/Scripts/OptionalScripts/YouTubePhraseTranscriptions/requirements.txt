@@ -1,0 +1,5 @@
+yt-dlp>=2024.1.1
+# youtube-transcript-api 1.x requires Python < 3.15. On Python 3.15 the
+# script automatically falls back to yt-dlp subtitles or a Piped/Invidious
+# instance (use --piped-instance / --invidious-instance).
+youtube-transcript-api>=1.2.4; python_version < "3.15"

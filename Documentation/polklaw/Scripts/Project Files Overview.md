@@ -408,4 +408,33 @@ This script is helpful for efficiently managing and collecting large volumes of 
 
 ---
 
-## 14.
+## 14. **YouTubePhraseTranscriptions/youtube_phrase_transcriptions.py**
+
+### Summary:
+
+This optional combined script searches YouTube for a phrase, stores all found video URLs, and downloads their transcripts into one text file. It replaces the manual two-step workflow of `04 YouTubeChannelSearch.py` + `06 ExtractYouTubeTranscriptions.py` and works with both the old and new `youtube-transcript-api` interfaces.
+
+### Details:
+
+- **Input:** A search phrase passed as a command-line argument, or an existing URL list via `--links-file`.
+- **Output (default):** `data/output/YouTubePhraseTranscriptions/<phrase-slug>/` containing:
+  - `video_urls.txt` - unique video URLs,
+  - `transcriptions.txt` - all transcripts in `URL: ... / Transcription: ...` blocks,
+  - `resume_file.txt` - successfully processed URLs for resuming,
+  - `missing_transcripts.txt` - videos without an available transcript.
+- **Features:**
+  - Collects all search results by default (`ytsearchall:`), with an optional `--max-results` limit.
+  - Language preference order via `--languages en,pl`; falls back to any manually created, then any available transcript.
+  - Resume support and `--overwrite` to start fresh.
+  - `--backend auto|api|piped|invidious|ytdlp`: uses `youtube-transcript-api`, with automatic fallback to a Piped API and/or Invidious instance (when `--piped-instance` / `--invidious-instance` is supplied) and yt-dlp subtitle downloads. Public Piped/Invidious proxies can bypass a local YouTube IP block.
+  - Stops after three consecutive `429`/`IpBlocked` failures instead of hammering YouTube; re-running resumes from `resume_file.txt`.
+  - `--links-only` and `--transcripts-only` modes split the two steps when needed.
+
+### Usage:
+
+```bash
+python3 Assets/Scripts/OptionalScripts/YouTubePhraseTranscriptions/youtube_phrase_transcriptions.py \
+  "why prezi is so good" --languages en
+```
+
+See `Assets/Scripts/OptionalScripts/YouTubePhraseTranscriptions/README.md` for installation and all options.
